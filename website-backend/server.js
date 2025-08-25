@@ -5,22 +5,14 @@ const cors = require('cors')
 const session = require('express-session');
 const csrf = require('csurf');
 
-const logger = require('./shared-utils/logging')
 const connection = require('./database/connection')
-const authenticate = require('./middlewares/auth.middleware')
+const authenticate = require('./middleware/auth.middleware')
 const ServerError = require('./shared-utils/error')
 
 
 // Import the routes
 const authRoutes = require('./routes/auth.route')
 
-// Connect to MySQL
-try {
-  connection.connect();
-} catch (err) {
-  logger.error('Error connecting to MySQL: ' + err.message);
-  console.error('Error connecting to MySQL:', err);
-}
 
 // Initialize server
 const app = express()
@@ -30,6 +22,13 @@ const logger = require('./shared-utils/logging')
 const port = process.env.PORT || 3000
 const secretKey = process.env.SECRET_KEY
 
+// Connect to MySQL
+try {
+  connection.connect();
+} catch (err) {
+  logger.error('Error connecting to MySQL: ' + err.message);
+  console.error('Error connecting to MySQL:', err);
+}
 
 // Set up session middleware
 app.use(session({
@@ -61,12 +60,8 @@ const csrfProtection = csrf();
 app.use(csrfProtection);
 
 // 5- Use the authentication middleware for all routes
-app.use(authenticate);
+// app.use(authenticate);
 
-// 6- Collect Errors
-app.all('*', (req, res, next) => {
-    next(new ServerError(`Can't find ${req.originalUrl} on this server!`, 404))
-})
 
 // Routes
 
@@ -81,6 +76,11 @@ app.use('/auth', authenticate, authRoutes);
 // Start the server
 app.listen(port, () => {
   console.log(`server is running on port ${port}...`)
+})
+
+// Collect Errors
+app.all('/*splat', (req, res, next) => {
+    next(new ServerError(`Can't find ${req.originalUrl} on this server!`, 404))
 })
 
 module.exports = app

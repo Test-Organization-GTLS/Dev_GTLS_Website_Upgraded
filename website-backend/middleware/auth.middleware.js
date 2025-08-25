@@ -1,6 +1,7 @@
 const validate_access_token = require("../utils/auth.utils");
 
 const auth_routes = [
+  "health",
   "login",
   "logout",
   "/auth/login",
@@ -13,13 +14,13 @@ const auth_routes = [
 const authenticate = (req, res, next) => {
   const path = req.path;
   const hasSession = req.session;
-
+console.log(path, hasSession)
   // Allow access to base url
   if (path == "") {
     return next();
   } else if (hasSession) {
     const token = req.session.token;
-    const user_id = req.session.user.UserId;
+    const user_id = req.session.user?.UserId;
     const is_valid_token =
       token && user_id ? validate_access_token(token, user_id) : false;
 
