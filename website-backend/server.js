@@ -5,6 +5,7 @@ const cors = require('cors')
 const session = require('express-session');
 const csrf = require('csurf');
 
+const logger = require('./shared-utils/logging')
 const connection = require('./database/connection')
 const authenticate = require('./middlewares/auth.middleware')
 const ServerError = require('./shared-utils/error')
@@ -17,6 +18,7 @@ const authRoutes = require('./routes/auth.route')
 try {
   connection.connect();
 } catch (err) {
+  logger.error('Error connecting to MySQL: ' + err.message);
   console.error('Error connecting to MySQL:', err);
 }
 

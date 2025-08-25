@@ -1,7 +1,9 @@
 require("dotenv").config({ path: "../.env" });
 const axios = require("axios");
-const STATUS = require("../shared-utils/status-code");
 const connection = require("../database/connection");
+
+const STATUS = require("../shared-utils/status-code");
+const logger = require("../shared-utils/logging");
 
 const validate_access_token = async (token, user_id) => {
   const root = process.env.GTAM_API_URL;
@@ -27,6 +29,7 @@ const validate_access_token = async (token, user_id) => {
       });
     }
   } catch (error) {
+    logger.error('Internal Server Error: ' + error.message);
     return res.status(STATUS.INTERNAL_SERVER_ERROR).json({
       message: "Internal Server Error",
       error: error.message,

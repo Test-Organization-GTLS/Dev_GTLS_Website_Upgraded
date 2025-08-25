@@ -1,8 +1,10 @@
 require("dotenv").config({ path: "./.env" });
 const { validationResult, destroy_session } = require("express-validator");
-const STATUS = require("../shared-utils/status-code");
 const connection = require("../database/connection");
 const axios = require("axios");
+
+const STATUS = require("../shared-utils/status-code");
+const logger = require("../shared-utils/logging");
 
 const Employee = require("../models/Employee");
 const Customer = require("../models/Customer");
@@ -36,6 +38,7 @@ class AuthController {
         (err, results) => {
           if (err) {
             console.error("error running query:", err);
+            logger.error('Error running query: ' + err);
             return res.status(STATUS.CONFLICT).json({
               user: null,
               token: null,
@@ -58,6 +61,7 @@ class AuthController {
       );
     } else {
       const errorMessage = "Something went wrong, try again later";
+      logger.error('Internal Server Error');
       return res.status(STATUS.INTERNAL_SERVER_ERROR).json({
         user: null,
         token: null,
@@ -94,7 +98,8 @@ class AuthController {
         [sessionId, userId, token, user, lastActivity],
         (err, results) => {
           if (err) {
-            console.error("error running query:", err);
+            console.error("Error running query:", err);
+            logger.error('Error running query: ' + err);
             return res.status(STATUS.CONFLICT).json({
               user: null,
               token: null,
@@ -117,6 +122,7 @@ class AuthController {
       );
     } else {
       const errorMessage = "Something went wrong, try again later";
+      logger.error('Internal Server Error');
       return res.status(STATUS.INTERNAL_SERVER_ERROR).json({
         user: null,
         token: null,
@@ -154,6 +160,7 @@ class AuthController {
         });
       })
       .catch((error) => {
+        logger.error('Internal Server Error: ' + error.message);
         return res.status(STATUS.INTERNAL_SERVER_ERROR).json({
           message: "Internal Server Error",
           error: error.message,
@@ -245,6 +252,7 @@ class AuthController {
       })
       .catch((error) => {
         console.error(error);
+        logger.error('Internal Server Error: ' + error.message);
         res.status(STATUS.INTERNAL_SERVER_ERROR).json(
           {
             Message: "Authentication error",
@@ -287,6 +295,7 @@ class AuthController {
         STATUS.OK
       );
     } catch (err) {
+      logger.error('Internal Server Error: ' + err.message);
       res.status(STATUS.INTERNAL_SERVER_ERROR).json(
         {
           message: "Logout failed. Please try again. " + err.message,
@@ -300,6 +309,7 @@ class AuthController {
     const errors = validationResult(req);
     const table_name = process.env.DB_TABLE || "custom_sessions";
     if (!errors.isEmpty()) {
+      logger.error('Bad Request: ' + errors.array());
       return res.status(STATUS.BAD_REQUEST).json({ errors: errors.array() });
     }
     if (req.session.user) {
