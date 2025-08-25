@@ -5,6 +5,14 @@
   --foreground: #171717;
 }
 
+@theme {
+  --color-dark-gold: #a37100;
+  --color-gold: #b98c25;
+  --color-light-gold: #CCA852;
+  --color-creamy: #F5F2EA;
+  --color-green: #2C783A;
+}
+
 @theme inline {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
