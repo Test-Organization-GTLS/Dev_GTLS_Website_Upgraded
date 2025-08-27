@@ -12,15 +12,15 @@ const Driver = require("../models/Driver");
 
 class AuthController {
   async login(req, res) {
-    const parameters = req.body;
-    const userObject = JSON.parse(parameters.UserObject);
-    const token = parameters.Token;
+    const parameters = req.headers;
+    const userObject = JSON.parse(parameters.userobject);
+    const token = parameters.token;
     const db_table = process.env.DB_TABLE || "custom_sessions";
-
+ 
     if (userObject && token) {
       // Generate Session using user id and owner id
       const userId = userObject.UserId;
-      req.session.regenerate();
+
       req.session.token = token;
       req.session.user = userObject;
       req.session.userId = userId;
@@ -37,22 +37,20 @@ class AuthController {
         [sessionId, userId, token, user, lastActivity],
         (err, results) => {
           if (err) {
-            console.error("error running query:", err);
+            console.log("Error running query:", err);
             logger.error('Error running query: ' + err);
             return res.status(STATUS.CONFLICT).json({
               user: null,
               token: null,
-              request: req,
               status: STATUS.CONFLICT,
               message: errorMessage,
             });
           }
           req.session.save();
           if (req.session.newRoute && req.session.user) {
-            res.status(STATUS.OK).json({
+            return res.status(STATUS.OK).json({
               user: user,
               token: token,
-              request: req,
               status: STATUS.OK,
               message: "Login successful",
             });
@@ -65,7 +63,6 @@ class AuthController {
       return res.status(STATUS.INTERNAL_SERVER_ERROR).json({
         user: null,
         token: null,
-        request: req,
         status: STATUS.INTERNAL_SERVER_ERROR,
         message: errorMessage,
       });
@@ -73,15 +70,15 @@ class AuthController {
   }
 
   async azureCallback(req, res) {
-        const parameters = req.body;
-    const userObject = JSON.parse(parameters.UserObject);
-    const token = parameters.Token;
+    const parameters = req.headers;
+    const userObject = JSON.parse(parameters.userobject);
+    const token = parameters.token;
     const db_table = process.env.DB_TABLE || "custom_sessions";
 
     if (userObject && token) {
       // Generate Session using user id and owner id
       const userId = userObject.UserId;
-      req.session.regenerate();
+
       req.session.token = token;
       req.session.user = userObject;
       req.session.userId = userId;
@@ -103,7 +100,6 @@ class AuthController {
             return res.status(STATUS.CONFLICT).json({
               user: null,
               token: null,
-              request: req,
               status: STATUS.CONFLICT,
               message: errorMessage,
             });
@@ -113,7 +109,6 @@ class AuthController {
             res.status(STATUS.OK).json({
               user: user,
               token: token,
-              request: req,
               status: STATUS.OK,
               message: "Login successful",
             });
@@ -126,7 +121,6 @@ class AuthController {
       return res.status(STATUS.INTERNAL_SERVER_ERROR).json({
         user: null,
         token: null,
-        request: req,
         status: STATUS.INTERNAL_SERVER_ERROR,
         message: errorMessage,
       });
@@ -134,10 +128,11 @@ class AuthController {
   }
 
   async logout(req, res) {
-    const parameters = req.body;
-    const session_domain = parameters.SessionDomain || "/";
-    const user = parameters.CurrentUser;
-    const root = parameters.URL;
+    const parameters = req.headers;
+
+    const session_domain = parameters.sessiondomain || "/";
+    const user = parameters.user;
+    const root = parameters.url;
 
     if (!user) {
       return res.status(STATUS.OK).json({
@@ -169,8 +164,8 @@ class AuthController {
   }
 
   async microsoftToken(req, res) {
-    const parameters = req.body;
-    const access_token = parameters.socialiteUser.accessToken;
+    const parameters = req.headers;
+    const access_token = parameters.socialiteuser.accessToken;
 
     const root = parameters.URL;
     const headers = {
@@ -215,7 +210,7 @@ class AuthController {
                 return;
               }
               req.session.save();
-              res.status(STATUS.OK).json({
+              return res.status(STATUS.OK).json({
                 message: "Login successful",
                 access_token: accessToken,
                 expires_in: expiresIn,
@@ -231,7 +226,7 @@ class AuthController {
               "Error while validating token: Code: InvalidAuthenticationToken"
             )
           ) {
-            res.status(STATUS.UNAUTHORIZED).json(
+            return res.status(STATUS.UNAUTHORIZED).json(
               {
                 Message:
                   "Error while validating token: Invalid Authentication Token",
@@ -240,7 +235,7 @@ class AuthController {
               STATUS.UNAUTHORIZED
             );
           } else {
-            res.status(STATUS.INTERNAL_SERVER_ERROR).json(
+            return res.status(STATUS.INTERNAL_SERVER_ERROR).json(
               {
                 Message: response.data.Message || "Authentication error",
                 error: response.data,
@@ -253,7 +248,7 @@ class AuthController {
       .catch((error) => {
         console.error(error);
         logger.error('Internal Server Error: ' + error.message);
-        res.status(STATUS.INTERNAL_SERVER_ERROR).json(
+        return res.status(STATUS.INTERNAL_SERVER_ERROR).json(
           {
             Message: "Authentication error",
             error: error,
@@ -288,7 +283,7 @@ class AuthController {
         }
       });
 
-      res.status(STATUS.OK).json(
+      return res.status(STATUS.OK).json(
         {
           message: "Logout Successfully",
         },
@@ -296,7 +291,7 @@ class AuthController {
       );
     } catch (err) {
       logger.error('Internal Server Error: ' + err.message);
-      res.status(STATUS.INTERNAL_SERVER_ERROR).json(
+      return res.status(STATUS.INTERNAL_SERVER_ERROR).json(
         {
           message: "Logout failed. Please try again. " + err.message,
         },

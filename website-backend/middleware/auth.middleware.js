@@ -1,9 +1,9 @@
 const validate_access_token = require("../utils/auth.utils");
 
 const auth_routes = [
-  "health",
-  "login",
-  "logout",
+  "/health",
+  "/login",
+  "/logout",
   "/auth/login",
   "/auth/logout",
   "/forgot-password",
@@ -14,7 +14,7 @@ const auth_routes = [
 const authenticate = (req, res, next) => {
   const path = req.path;
   const hasSession = req.session;
-console.log(path, hasSession)
+
   // Allow access to base url
   if (path == "") {
     return next();
@@ -24,8 +24,13 @@ console.log(path, hasSession)
     const is_valid_token =
       token && user_id ? validate_access_token(token, user_id) : false;
 
+    // Allow access to specific routes without session
+    const is_accessing_auth_route = auth_routes.includes(path) ? true : false;
+
     // Check if token is valid
-    if (is_valid_token.status !== 200) {
+    if(is_accessing_auth_route){
+      return next();
+    } else if (is_valid_token.status !== 200) {
       return res.redirect("/login");
     }
   } else {
