@@ -10,7 +10,7 @@ const Page = () => {
         <Button size={"lg"}>Contact us Now</Button>
         <TitleWrapper text="Title" size="xl" />
         <TextWrapper size="lg" text="Title" bold="extra"/> 
-        Title Testing
+        Title
       </div>
     </Container>
   );
