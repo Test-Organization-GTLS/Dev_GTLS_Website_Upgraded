@@ -1,6 +1,6 @@
 import "./globals.css";
 import { NuqsAdapter } from "nuqs/adapters/next";
-import { Geist, Geist_Mono } from "next/font/google";
+import { Geist, Geist_Mono, Funnel_Display, DM_Sans } from "next/font/google";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -9,6 +9,16 @@ const geistSans = Geist({
 
 const geistMono = Geist_Mono({
   variable: "--font-geist-mono",
+  subsets: ["latin"],
+});
+
+const funnelDisplay = Funnel_Display({
+  variable: "--font-funnel-display",
+  subsets: ["latin"],
+});
+
+const dmSans = DM_Sans({
+  variable: "--font-dm-sans",
   subsets: ["latin"],
 });
 
@@ -42,7 +52,7 @@ export default function RootLayout({
     <html lang="en" suppressHydrationWarning>
       <body
         suppressHydrationWarning
-        className={`${geistSans.variable} ${geistMono.variable} antialiased`}
+        className={`${geistSans.variable} ${geistMono.variable} ${funnelDisplay.variable} ${dmSans.variable} antialiased`}
       >
         <NuqsAdapter>{children}</NuqsAdapter>
       </body>

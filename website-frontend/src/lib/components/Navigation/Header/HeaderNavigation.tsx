@@ -5,7 +5,7 @@ const HeaderNavigation = ({}) => {
   return (
     <div className="fixed top-0 z-50 h-24 w-full">
       <Container>
-        <div className="flex items-center h-full">
+        <div className="flex items-center h-full border-b-[1px]">
           <Image
             src={"/Logos/logo-transparent.svg"}
             alt="MADs"
