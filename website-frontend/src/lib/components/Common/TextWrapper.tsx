@@ -49,7 +49,7 @@ const TextWrapper = ({ text, size }: Props) => {
 
   return (
     <div
-      className={`dm-sans-font font-normal ${getSizeClasses(
+      className={`dm-sans-font font-normal test ${getSizeClasses(
         size
       )} ${getBoldClasses(size)}`}
     >
