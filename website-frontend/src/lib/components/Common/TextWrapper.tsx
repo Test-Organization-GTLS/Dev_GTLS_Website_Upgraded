@@ -1,60 +1,37 @@
-type Props = {
+import { typography } from '@/lib/typography';
+import React from 'react';
+
+// Define the typography systems' font families and style types for type safety.
+type FontFamilies = keyof typeof typography;
+type StyleTypes = keyof typeof typography['funnel']['styles'] | keyof typeof typography['dmSans']['styles'];
+
+interface TextWrapperProps {
   text: string;
-  size: "xs" | "sm" | "md" | "lg" | "xl" | "2xl" | "3xl";
-  bold: "light" | "normal" | "semi" | "bold" | "extra";
-};
+  fontFamily: FontFamilies;
+  styleType: StyleTypes;
+}
 
-const TextWrapper = ({ text, size }: Props) => {
-  const getSizeClasses = (size: string) => {
-    switch (size) {
-      case "3xl":
-        return "text-7xl leading-tight";
-      case "2xl":
-        return "text-6xl leading-tight";
-      case "xl":
-        return "text-5xl leading-tight";
-      case "lg":
-        return "text-4xl leading-tight";
-      case "md":
-        return "text-3xl leading-tight";
-      case "sm":
-        return "text-2xl leading-tight";
-      case "xs":
-        return "text-xl leading-tight";
-      default:
-        return "text-3xl leading-tight";
-    }
-  };
+const TextWrapper: React.FC<TextWrapperProps> = ({ text, fontFamily, styleType }) => {
+  const fontCategory = typography[fontFamily];
 
-  const getBoldClasses = (bold: string) => {
-    switch (bold) {
-      case "light":
-        return "font-light";
-      case "2xl":
-        return "text-6xl leading-tight";
-      case "xl":
-        return "text-5xl leading-tight";
-      case "lg":
-        return "text-4xl leading-tight";
-      case "md":
-        return "text-3xl leading-tight";
-      case "sm":
-        return "text-2xl leading-tight";
-      case "xs":
-        return "text-xl leading-tight";
-      default:
-        return "text-3xl leading-tight";
-    }
+  // Safely look up the style from the typography object.
+  const style = fontCategory?.styles?.[styleType as keyof typeof fontCategory.styles];
+
+  if (!fontCategory || !style) {
+    console.error(`Invalid font family or styleType: ${fontFamily} - ${styleType}`);
+    // Provide a basic fallback style to prevent a crash.
+    return <span>{text}</span>;
+  }
+  
+  const combinedStyles: React.CSSProperties = {
+    fontFamily: fontCategory.fontFamily,
+    ...style,
   };
 
   return (
-    <div
-      className={`dm-sans-font font-normal test ${getSizeClasses(
-        size
-      )} ${getBoldClasses(size)}`}
-    >
+    <span style={combinedStyles}>
       {text}
-    </div>
+    </span>
   );
 };
 
