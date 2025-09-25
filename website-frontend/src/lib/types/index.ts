@@ -11,4 +11,71 @@ export interface CenterTitleProps {
   title: string;
   description?: string; // The `?` makes this property optional
   button?: React.ReactNode; // `React.ReactNode` is a great type for optional elements like a button
+  dark?: boolean; // Optional prop to switch to dark mode styles
+  buttonText?: string;
+  onButtonClick?: () => void;
+  buttonType?: "button" | "submit" | "reset";
+  placement?: "left" | "center" | "right"; // new prop
+  buttonVariant?:"outline" | "link" | "default" | "destructive" | "secondary" | "ghost" | null | undefined; // new prop
+}
+
+export interface MenuItem {
+  label: string;
+  link: string;
+}
+
+export interface MenuSection {
+  title: string;
+  items: MenuItem[];
+}
+
+export interface Location {
+  city: string;
+  street: string;
+  suburb: string;
+  state: string;
+  postalCode: string;
+}
+
+export interface WhyGtlsItem {
+  title: string;
+  picture: string;
+}
+
+export interface UnevenGridProps {
+  items: WhyGtlsItem[];
+}
+
+export interface IconListItem {
+  icon: React.ReactNode; // can be any JSX element
+  description: string;
+}
+
+export interface IconListProps {
+  items: IconListItem[];
+}
+
+export interface CustomerHubCardProps {
+  title: string;
+  subtitle: string;
+  imageSrc: string;
+  list?: IconListItem[]; // optional array for IconList
+  iconColor?: string; // arrow icon color
+  children?: React.ReactNode; // optional additional content
+}
+
+export interface NewsCardProps {
+  title: string;
+  description: string;
+  imageSrc: string;
+}
+
+interface NewsItem {
+  title: string;
+  description: string;
+  imageSrc: string;
+}
+
+export interface NewsSliderProps {
+  news: NewsItem[];
 }

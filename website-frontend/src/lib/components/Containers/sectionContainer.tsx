@@ -1,14 +1,20 @@
 import { ReactNode } from "react";
+import clsx from "clsx";
 
 type Props = {
   children: ReactNode;
+  parentClassName?: string;
+  className?: string; // Add className as an optional prop
 };
 
-const SectionContainer = ({ children }: Props) => {
+const SectionContainer = ({ children, className, parentClassName }: Props) => {
   return (
-    <div className="w-full h-full py-20">
+    <div className={clsx("w-full h-full", parentClassName)}>
+      <div className={clsx("w-full h-full pt-15 pb-15 xl:max-w-5xl 2xl:max-w-7xl mx-auto", className)}>
       {children}
     </div>
+    </div>
+    
   );
 };
 

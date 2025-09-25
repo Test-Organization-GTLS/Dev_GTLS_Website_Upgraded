@@ -1,5 +1,6 @@
-import { typography } from '@/lib/typography';
 import React from 'react';
+import { typography } from '@/lib/typography';
+
 
 // Define the typography systems' font families and style types for type safety.
 type FontFamilies = keyof typeof typography;
@@ -9,9 +10,10 @@ interface TextWrapperProps {
   text: string;
   fontFamily: FontFamilies;
   styleType: StyleTypes;
+  className?: string; // Make the className optional
 }
 
-const TextWrapper: React.FC<TextWrapperProps> = ({ text, fontFamily, styleType }) => {
+const TextWrapper: React.FC<TextWrapperProps> = ({ text, fontFamily, styleType, className }) => {
   const fontCategory = typography[fontFamily];
 
   // Safely look up the style from the typography object.
@@ -20,7 +22,7 @@ const TextWrapper: React.FC<TextWrapperProps> = ({ text, fontFamily, styleType }
   if (!fontCategory || !style) {
     console.error(`Invalid font family or styleType: ${fontFamily} - ${styleType}`);
     // Provide a basic fallback style to prevent a crash.
-    return <span>{text}</span>;
+    return <span className={className}>{text}</span>;
   }
   
   const combinedStyles: React.CSSProperties = {
@@ -29,7 +31,8 @@ const TextWrapper: React.FC<TextWrapperProps> = ({ text, fontFamily, styleType }
   };
 
   return (
-    <span style={combinedStyles}>
+    // Use `clsx` to merge the provided className with the internal font styles.
+    <span className={className} style={combinedStyles}>
       {text}
     </span>
   );

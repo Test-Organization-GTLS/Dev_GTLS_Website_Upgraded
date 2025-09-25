@@ -9,6 +9,10 @@
   --color-light-gold: #cca852;
   --color-creamy: #f5f2ea;
   --color-green: #2c783a;
+  --color-tint-black: #18171e;
+  --color-tint-gray: #34353e;
+  --color-tint-light-gray: #6e6f7a;
+  --color-tint-offwhite: #e0dcd9;
 }
 
 @theme inline {

@@ -3,17 +3,19 @@ import Container from "@/lib/components/Containers/container";
 import TextWrapper from "@/lib/components/Common/TextWrapper";
 import TitleWrapper from "@/lib/components/Common/TitleWrapper";
 import Services from "@/lib/pages/home/sections/services";
+import Hero from "@/lib/pages/home/sections/hero";
+import WhyGtls from "@/lib/pages/home/sections/whygtls";
+import CustomerHub from "@/lib/pages/home/sections/CustomerHub";
+import News from "@/lib/pages/home/sections/News";
 
 const Page = () => {
   return (
     <Container>
-      <div className="!pt-30">
-        <Button size={"lg"}>Contact us Now</Button>
-        <TitleWrapper text="Title" size="xl" />
-        <TextWrapper text="test" fontFamily="funnel" styleType="title1" /> 
-        Title
-      </div>
+      <Hero />
       <Services />
+      <WhyGtls />
+      <CustomerHub />
+      <News />
     </Container>
   );
 };
