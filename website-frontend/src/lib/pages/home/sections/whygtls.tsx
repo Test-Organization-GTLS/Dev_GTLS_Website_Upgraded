@@ -18,6 +18,7 @@ const WhyGtls = () => {
         <div className="flex flex-col gap-10"></div>
         <CenterTitle
           title="Why Gold Tiger Logistics Solutions"
+          titleColor="text-white"
           description="Designed for Efficiency and Security"
           buttonText={"Get a Custom Solution"}
           dark

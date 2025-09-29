@@ -12,10 +12,12 @@ const CenterTitle: React.FC<CenterTitleProps> = ({
   buttonText,
   onButtonClick,
   buttonType = "button",
+  titleColor = "text-black",
   buttonVariant = "outline",
   placement = "center", // default center
 }) => {
   const textColor = dark ? "text-white" : "text-black";
+  
   const buttonTextColor = dark|| buttonVariant==="default" ? "text-white" : "text-black";
   const borderColor = dark ? "border-white bg-transparent" : "border-black";
   const alignmentClasses = {
@@ -29,7 +31,7 @@ const CenterTitle: React.FC<CenterTitleProps> = ({
         text={title}
         fontFamily="dmSans"
         styleType="title2"
-        className={textColor}
+        className={titleColor}
       />
       {/* Conditionally render the description if it exists */}
       {description && (

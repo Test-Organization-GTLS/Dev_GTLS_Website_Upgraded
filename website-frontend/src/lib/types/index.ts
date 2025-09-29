@@ -13,6 +13,7 @@ export interface CenterTitleProps {
   button?: React.ReactNode; // `React.ReactNode` is a great type for optional elements like a button
   dark?: boolean; // Optional prop to switch to dark mode styles
   buttonText?: string;
+  titleColor?: string;
   onButtonClick?: () => void;
   buttonType?: "button" | "submit" | "reset";
   placement?: "left" | "center" | "right"; // new prop
@@ -84,8 +85,18 @@ interface NewsItem {
   imageSrc: string;
 }
 
+export interface SliderItem {
+  date: string;
+  title: string;
+  description: string;
+}
+
 export interface NewsSliderProps {
   news: NewsItem[];
+}
+
+export interface SliderProps {
+  items: SliderItem[];
 }
 
 export interface FloatingBannerProps {
@@ -102,3 +113,10 @@ export interface HeroProps {
   className?: string;
   cornerText?: string;
 };
+
+export interface BannerProps {
+  title: string;
+  description: string;
+  imageSrc: string;
+  imageAlt?: string;
+}

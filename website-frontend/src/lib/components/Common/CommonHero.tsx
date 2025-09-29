@@ -56,8 +56,8 @@ const CommonHero = ({
           priority
           className="object-cover rounded-4xl"
         />
-        <div className="bg-light-gold bg-opacity-50 h-16 w-auto p-4 absolute bottom-0 right-0 rounded-tl-3xl">
-          <div className="flex gap-2 hover:cursor-pointer items-center">
+        <div className="bg-light-gold bg-opacity-50 h-16 w-auto p-4 absolute bottom-0 right-0 rounded-tl-3xl hover:cursor-pointer">
+          <div className="flex gap-2 items-center">
             <TextWrapper
               text={cornerText}
               fontFamily="dmSans"

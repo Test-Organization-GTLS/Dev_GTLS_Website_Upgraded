@@ -1,5 +1,7 @@
 import Container from "@/lib/components/Containers/container";
 import CommonHero from "@/lib/components/Common/CommonHero";
+import History from "@/lib/pages/about/sections/History";
+import BannerSection from "@/lib/pages/about/sections/BannerSection";
 
 const Page = () => {
   return (
@@ -11,6 +13,8 @@ const Page = () => {
         imageSrc="/webp/3movers.webp"
         cornerText="Talk with an expert"
       />
+      <History />
+      <BannerSection />
     </Container>
   );
 };

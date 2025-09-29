@@ -11,6 +11,7 @@ const CustomerHub = () => {
           <CenterTitle
             title="Customer Hub Simplifying Your Journey"
             placement="left"
+            titleColor="text-gold"
             description="Your one-stop destination for support, resources, and self-service tools."
             buttonText={"Get a Custom Solution"}
             buttonVariant={"default"}

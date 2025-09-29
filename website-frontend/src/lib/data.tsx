@@ -131,9 +131,18 @@ export const CustomerHubData = [
     title: "GTRS",
     subtitle: "Gold Tiger Reporting System",
     list: [
-      { icon: <Check />, description: "Real-time dashboard for shipment visibility" },
-      { icon: <Check />, description: "Access KPI, transport, and RDD reports" },
-      { icon: <Check />, description: "Analyze delivery trends and performance" },
+      {
+        icon: <Check />,
+        description: "Real-time dashboard for shipment visibility",
+      },
+      {
+        icon: <Check />,
+        description: "Access KPI, transport, and RDD reports",
+      },
+      {
+        icon: <Check />,
+        description: "Analyze delivery trends and performance",
+      },
     ],
   },
   {
@@ -161,9 +170,18 @@ export const CustomerHubData = [
     title: "Portal Login",
     subtitle: "Manage Your Account Online",
     list: [
-      { icon: <Check />, description: "Real-time dashboard for shipment visibility" },
-      { icon: <Check />, description: "Access KPI, transport, and RDD reports" },
-      { icon: <Check />, description: "Analyze delivery trends and performance" },
+      {
+        icon: <Check />,
+        description: "Real-time dashboard for shipment visibility",
+      },
+      {
+        icon: <Check />,
+        description: "Access KPI, transport, and RDD reports",
+      },
+      {
+        icon: <Check />,
+        description: "Analyze delivery trends and performance",
+      },
     ],
   },
   {
@@ -216,3 +234,37 @@ export const NewsData = [
     imageSrc: "/webp/3movers.webp",
   },
 ];
+
+export const HistoryData = [
+  {
+    date: "2026",
+    title: "One Truck, One Dream",
+    description:
+      "Young Imad El Masri launches Gold Tiger at 19, with $50,000 turnover.",
+  },
+  {
+    date: "2010",
+    title: "One Truck, One Dream",
+    description:
+      "Young Imad El Masri launches Gold Tiger at 19, with $50,000 turnover.",
+  },
+  {
+    date: "2026",
+    title: "One Truck, One Dream",
+    description:
+      "Young Imad El Masri launches Gold Tiger at 19, with $50,000 turnover.",
+  },
+  {
+    date: "2026",
+    title: "One Truck, One Dream",
+    description:
+      "Young Imad El Masri launches Gold Tiger at 19, with $50,000 turnover.",
+  },
+];
+
+export const BannerAboutData = {
+  title: "Our Integrated Model",
+  description:
+    "Gold Tiger offers seamless transport, warehousing, and distribution services tailored to each client’s operations. With a nationwide fleet of Volvo trucks, strategic warehousing, and an all-employee driving team, we move over 250,000 tonnes of freight annually for 40+ major clients including Unilever, General Mills, and Sigma Healthcare. Our proactive, tech-driven approach ensures smooth integration, custom solutions, and dependable service that solves problems before they arise—making us a true extension of your business.",
+  imageSrc: "/svgs/aboutbanner.svg",
+};
