@@ -16,7 +16,15 @@ export interface CenterTitleProps {
   onButtonClick?: () => void;
   buttonType?: "button" | "submit" | "reset";
   placement?: "left" | "center" | "right"; // new prop
-  buttonVariant?:"outline" | "link" | "default" | "destructive" | "secondary" | "ghost" | null | undefined; // new prop
+  buttonVariant?:
+    | "outline"
+    | "link"
+    | "default"
+    | "destructive"
+    | "secondary"
+    | "ghost"
+    | null
+    | undefined; // new prop
 }
 
 export interface MenuItem {
@@ -79,3 +87,18 @@ interface NewsItem {
 export interface NewsSliderProps {
   news: NewsItem[];
 }
+
+export interface FloatingBannerProps {
+  iconSrc: string; // Path to the icon (e.g. "/svgs/distribution.svg")
+  text: string; // The text you want to show
+  className?: string; // Optional additional classes for customization
+}
+
+export interface HeroProps {
+  title?: string;
+  subtitle?: string;
+  description?: string;
+  imageSrc?: string;
+  className?: string;
+  cornerText?: string;
+};

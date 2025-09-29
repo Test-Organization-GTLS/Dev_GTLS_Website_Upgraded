@@ -16,6 +16,7 @@ const CenterTitle: React.FC<CenterTitleProps> = ({
   placement = "center", // default center
 }) => {
   const textColor = dark ? "text-white" : "text-black";
+  const buttonTextColor = dark|| buttonVariant==="default" ? "text-white" : "text-black";
   const borderColor = dark ? "border-white bg-transparent" : "border-black";
   const alignmentClasses = {
     left: "items-start text-left",
@@ -44,14 +45,13 @@ const CenterTitle: React.FC<CenterTitleProps> = ({
         <Button
           type={buttonType}
           onClick={onButtonClick}
-          className={`rounded-full !hover:bg-creamy hover:cursor-pointer h-12 w-[250px]  ${borderColor} ${textColor}`}
+          className={`rounded-full !hover:bg-creamy hover:text-black hover:cursor-pointer h-12 w-[250px]  ${borderColor} ${buttonTextColor}`}
           variant={buttonVariant}
         >
           <TextWrapper
             text={buttonText}
             fontFamily="dmSans"
             styleType="bodySmall"
-            className={buttonVariant === "default" ? "text-white" : textColor}
           />
         </Button>
       )}

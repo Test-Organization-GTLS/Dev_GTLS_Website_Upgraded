@@ -10,11 +10,15 @@ type Props = {
 const SectionContainer = ({ children, className, parentClassName }: Props) => {
   return (
     <div className={clsx("w-full h-full", parentClassName)}>
-      <div className={clsx("w-full h-full pt-15 pb-15 xl:max-w-5xl 2xl:max-w-7xl mx-auto", className)}>
-      {children}
+      <div
+        className={clsx(
+          "w-full h-full pt-15 pb-15 xl:max-w-5xl 2xl:max-w-7xl mx-auto",
+          className
+        )}
+      >
+        {children}
+      </div>
     </div>
-    </div>
-    
   );
 };
 
