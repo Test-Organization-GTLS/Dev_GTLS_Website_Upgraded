@@ -1,3 +1,5 @@
+import { LucideIcon } from "lucide-react";
+
 export interface GridCardProps {
   id: number;
   title: string;
@@ -112,6 +114,7 @@ export interface HeroProps {
   imageSrc?: string;
   className?: string;
   cornerText?: string;
+  color?: "gold" | "green";
 };
 
 export interface BannerProps {
@@ -119,4 +122,30 @@ export interface BannerProps {
   description: string;
   imageSrc: string;
   imageAlt?: string;
+}
+export interface ContentListNumber {
+  label: string;
+  value: string;
+}
+
+export interface ContentListItem {
+  icon: LucideIcon;
+  title: string;
+  description: string;
+}
+
+export interface ContentListType {
+  title: string;
+  subtitle: string;
+  description: string;
+  numbers?: ContentListNumber[];
+  list: ContentListItem[];
+}
+
+export interface HorizontalCardProps {
+  imgSrc: string;
+  title: string;
+  subtitle: string;
+  description: string;
+  color?: string;
 }

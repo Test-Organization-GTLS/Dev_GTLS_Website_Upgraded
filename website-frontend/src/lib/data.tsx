@@ -1,4 +1,4 @@
-import { Check } from "lucide-react";
+import { Check, MapPin } from "lucide-react";
 import { GridCardProps, Location, MenuSection, WhyGtlsItem } from "./types";
 
 export const serviceData: GridCardProps[] = [
@@ -267,4 +267,193 @@ export const BannerAboutData = {
   description:
     "Gold Tiger offers seamless transport, warehousing, and distribution services tailored to each client’s operations. With a nationwide fleet of Volvo trucks, strategic warehousing, and an all-employee driving team, we move over 250,000 tonnes of freight annually for 40+ major clients including Unilever, General Mills, and Sigma Healthcare. Our proactive, tech-driven approach ensures smooth integration, custom solutions, and dependable service that solves problems before they arise—making us a true extension of your business.",
   imageSrc: "/svgs/aboutbanner.svg",
+};
+
+export const StoryData = {
+  title: "Our Story",
+  subtitle: "From One Truck to a National Fleet.",
+  description:
+    "Gold Tiger Logistics Solutions began in 2006 when a 19-year-old truck enthusiast, Imad El Masri, started with just one truck and a dream. By 2010, he had built a 20-truck interstate fleet. Today, Gold Tiger is a $55M+ logistics company with over 120 prime movers, 280 trailers, and 350+ team members — all proudly owned and operated. Backed by a strong partnership with Volvo and our in-house workshops, we keep Australia’s supply chain moving with reliability and passion.",
+  numbers: [
+    { label: "Fleet Size", value: "120+" },
+    { label: "Trailers", value: "280+" },
+    { label: "Team Members", value: "350+" },
+    { label: "Annual Turnover", value: "$55M+" },
+  ],
+  list: [
+    {
+      icon: MapPin,
+      title: "Strategic Locations",
+      description:
+        "Gold Tiger operates out of major hubs across Australia, ensuring fast and efficient interstate delivery and warehousing. Our widespread infrastructure supports seamless national coverage.",
+    },
+    {
+      icon: MapPin,
+      title: "Proven Expertise",
+      description:
+        "With nearly two decades of experience, we bring deep industry knowledge, a highly trained workforce, and a legacy of reliability in every shipment.",
+    },
+    {
+      icon: MapPin,
+      title: "Flexibility & Scalability",
+      description:
+        "From startups to enterprise clients, we tailor solutions that grow with your business. Our agile fleet and adaptable warehousing capacity make us the perfect partner for businesses of all sizes.",
+    },
+    {
+      icon: MapPin,
+      title: "Innovative Technology",
+      description:
+        "We harness powerful logistics software, real-time tracking, and automation to streamline operations, ensure accuracy, and improve communication across the supply chain.",
+    },
+    {
+      icon: MapPin,
+      title: "Customer-Centric Approach",
+      description:
+        "We believe first, act second. Our clients enjoy responsive service, dedicated account managers, and a commitment to proactive problem-solving that builds lasting relationships.",
+    },
+    {
+      icon: MapPin,
+      title: "Cost-Effective Solutions",
+      description:
+        "We deliver value without compromise. With owned assets, in-house staff, and process efficiency, we offer competitive pricing without cutting corners.",
+    },
+    {
+      icon: MapPin,
+      title: "Recognition & Awards",
+      description:
+        "Gold Tiger is recognized for excellence in service, safety, and sustainability, and continues to earn industry respect through results, innovation, and trusted partnerships.",
+    },
+    {
+      icon: MapPin,
+      title: "Sustainability Initiatives",
+      description:
+        "Gold Tiger invests in fuel-efficient Volvo trucks, optimizes delivery routes to reduce emissions, and uses sustainable practices across our operations. Our goal is to minimize our environmental footprint while supporting a cleaner, greener future for logistics in Australia.",
+    },
+  ],
+};
+
+export const IndustriesData = [
+  {
+    imgSrc: "/globe.svg",
+    title: "Printing",
+    subtitle: "Fast, Flexible, Everywhere.",
+    description:
+      "From high-street to online retail, we help you stay ahead with rapid distribution, scalable warehousing, and real-time tracking to meet changing customer demand.",
+  },
+  {
+    imgSrc: "/globe.svg",
+    title: "Food & Beverage",
+    subtitle: "Fresh. Safe. On Time.",
+    description:
+      "We support food producers with temperature-controlled options, efficient B-Triple transport, and compliance-ready solutions across the supply chain.",
+  },
+  {
+    imgSrc: "/globe.svg",
+    title: "Health & Beauty",
+    subtitle: "Care That Delivers.",
+    description:
+      "From cosmetics to medical-grade products, our secure handling and precise inventory systems protect your brand — and your customers.",
+  },
+  {
+    imgSrc: "/globe.svg",
+    title: "Fast-Moving Consumer Goods (FMCG)",
+    subtitle: "High Volume. High Velocity.",
+    description:
+      "GTLS is built for the pace of FMCG. We handle large-volume SKU movement with intelligent pallet management, automation, and corridor-optimized distribution.",
+  },
+];
+
+export const EnvironmentData = [
+  {
+    imgSrc: "/globe.svg",
+    title: "Recycling Programs",
+    subtitle: "Waste Less, Deliver More.",
+    description:
+      "We actively reduce our environmental footprint through structured recycling systems across all operations.",
+  },
+  {
+    imgSrc: "/globe.svg",
+    title: "Green Practices",
+    subtitle: "Cleaner Choices Every Mile.",
+    description:
+      "From route optimization to energy-efficient facilities, we're committed to minimizing emissions and resource waste.",
+  },
+  {
+    imgSrc: "/globe.svg",
+    title: "Safety & Compliance",
+    subtitle: "Doing It Right, Every Time.",
+    description:
+      "Strict safety protocols and full regulatory compliance keep our people and your cargo protected at all times.",
+  },
+  {
+    imgSrc: "/globe.svg",
+    title: "Partners & Certifications",
+    subtitle: "Trusted, Certified, Committed.",
+    description:
+      "We partner with industry leaders and hold certifications that prove our dedication to ethical operations.",
+  },
+  {
+    imgSrc: "/globe.svg",
+    title: "Fatigue Management",
+    subtitle: "Wellness on the Road.",
+    description:
+      "Our fatigue management program ensures drivers are alert, healthy, and operating at their best for safe deliveries.",
+  },
+];
+
+export const contactUsData = {
+  title: "Book a Meeting",
+  subtitle: "Let’s talk logistics. Schedule a one-on-one with our team to discuss your needs.",
+  description:
+    "Gold Tiger Logistics Solutions began in 2006 when a 19-year-old truck enthusiast, Imad El Masri, started with just one truck and a dream. By 2010, he had built a 20-truck interstate fleet. Today, Gold Tiger is a $55M+ logistics company with over 120 prime movers, 280 trailers, and 350+ team members — all proudly owned and operated. Backed by a strong partnership with Volvo and our in-house workshops, we keep Australia’s supply chain moving with reliability and passion.",
+  list: [
+    {
+      icon: MapPin,
+      title: "Strategic Locations",
+      description:
+        "Gold Tiger operates out of major hubs across Australia, ensuring fast and efficient interstate delivery and warehousing. Our widespread infrastructure supports seamless national coverage.",
+    },
+    {
+      icon: MapPin,
+      title: "Proven Expertise",
+      description:
+        "With nearly two decades of experience, we bring deep industry knowledge, a highly trained workforce, and a legacy of reliability in every shipment.",
+    },
+    {
+      icon: MapPin,
+      title: "Flexibility & Scalability",
+      description:
+        "From startups to enterprise clients, we tailor solutions that grow with your business. Our agile fleet and adaptable warehousing capacity make us the perfect partner for businesses of all sizes.",
+    },
+    {
+      icon: MapPin,
+      title: "Innovative Technology",
+      description:
+        "We harness powerful logistics software, real-time tracking, and automation to streamline operations, ensure accuracy, and improve communication across the supply chain.",
+    },
+    {
+      icon: MapPin,
+      title: "Customer-Centric Approach",
+      description:
+        "We believe first, act second. Our clients enjoy responsive service, dedicated account managers, and a commitment to proactive problem-solving that builds lasting relationships.",
+    },
+    {
+      icon: MapPin,
+      title: "Cost-Effective Solutions",
+      description:
+        "We deliver value without compromise. With owned assets, in-house staff, and process efficiency, we offer competitive pricing without cutting corners.",
+    },
+    {
+      icon: MapPin,
+      title: "Recognition & Awards",
+      description:
+        "Gold Tiger is recognized for excellence in service, safety, and sustainability, and continues to earn industry respect through results, innovation, and trusted partnerships.",
+    },
+    {
+      icon: MapPin,
+      title: "Sustainability Initiatives",
+      description:
+        "Gold Tiger invests in fuel-efficient Volvo trucks, optimizes delivery routes to reduce emissions, and uses sustainable practices across our operations. Our goal is to minimize our environmental footprint while supporting a cleaner, greener future for logistics in Australia.",
+    },
+  ],
 };

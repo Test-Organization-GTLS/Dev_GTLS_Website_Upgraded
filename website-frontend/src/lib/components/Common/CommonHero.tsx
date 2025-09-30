@@ -11,6 +11,7 @@ const CommonHero = ({
   imageSrc = "/webp/3movers.webp", // ✅ fallback image
   cornerText = "Talk with an expert",
   className,
+  color = "gold",
 }: HeroProps) => {
   return (
     <SectionContainer
@@ -23,7 +24,7 @@ const CommonHero = ({
             text={title}
             fontFamily="funnel"
             styleType="title2"
-            className="text-dark-gold min-w-xs"
+            className={`${color === "gold" ? "text-dark-gold" : "text-green"} min-w-xs`}
           />
           <TextWrapper
             text={subtitle}
@@ -34,7 +35,7 @@ const CommonHero = ({
         </div>
 
         {/* Divider */}
-        <div className="w-10 h-0.5 hidden md:block bg-dark-gold mt-6"></div>
+        <div className={`w-10 h-0.5 hidden md:block ${color === "gold" ? "bg-dark-gold" : "bg-green"} mt-6`}></div>
 
         {/* Description */}
         <div className="md:w-5/12">
@@ -56,8 +57,8 @@ const CommonHero = ({
           priority
           className="object-cover rounded-4xl"
         />
-        <div className="bg-light-gold bg-opacity-50 h-16 w-auto p-4 absolute bottom-0 right-0 rounded-tl-3xl hover:cursor-pointer">
-          <div className="flex gap-2 items-center">
+        <div className={`${color === "gold" ? "bg-light-gold" : "bg-green"} h-16 w-auto p-4 min-w-[250px] absolute bottom-0 right-0 rounded-tl-3xl hover:cursor-pointer`}>
+          <div className="flex gap-2 justify-between items-center">
             <TextWrapper
               text={cornerText}
               fontFamily="dmSans"
