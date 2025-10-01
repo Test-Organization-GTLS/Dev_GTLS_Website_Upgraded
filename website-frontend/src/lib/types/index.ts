@@ -28,6 +28,7 @@ export interface CenterTitleProps {
     | "ghost"
     | null
     | undefined; // new prop
+    listItems?: { icon?: React.ReactNode; title: string }[];
 }
 
 export interface MenuItem {
@@ -148,4 +149,25 @@ export interface HorizontalCardProps {
   subtitle: string;
   description: string;
   color?: string;
+}
+
+type Branch = {
+  name: string
+  phone: string
+  address: string
+  mail: string
+}
+
+export interface BranchesProps {
+  data: Branch[]
+}
+
+export interface IntegratedSolutionsItem {
+  title: string;
+  description: string;
+  picture: string;
+}
+
+export interface IntegratedSolutionsProps {
+  items: IntegratedSolutionsItem[];
 }

@@ -15,10 +15,12 @@ const CenterTitle: React.FC<CenterTitleProps> = ({
   titleColor = "text-black",
   buttonVariant = "outline",
   placement = "center", // default center
+  listItems,
 }) => {
   const textColor = dark ? "text-white" : "text-black";
-  
-  const buttonTextColor = dark|| buttonVariant==="default" ? "text-white" : "text-black";
+
+  const buttonTextColor =
+    dark || buttonVariant === "default" ? "text-white" : "text-black";
   const borderColor = dark ? "border-white bg-transparent" : "border-black";
   const alignmentClasses = {
     left: "items-start text-left",
@@ -41,6 +43,19 @@ const CenterTitle: React.FC<CenterTitleProps> = ({
           styleType="body"
           className={`max-w-3xl ${textColor}`}
         />
+      )}
+      {/* ✅ List with optional icons */}
+      {listItems && listItems.length > 0 && (
+        <ul className={`space-y-2 ${placement === "center" ? "mx-auto" : ""}`}>
+          {listItems.map((item, idx) => (
+            <li key={idx} className={`flex items-center gap-2 ${textColor}`}>
+              {item.icon && (
+                <span className="flex-shrink-0 text-xl">{item.icon}</span>
+              )}
+              <TextWrapper text={item.title} fontFamily="dmSans" styleType="body" />
+            </li>
+          ))}
+        </ul>
       )}
       {/* Conditionally render the button if it exists */}
       {buttonText && (

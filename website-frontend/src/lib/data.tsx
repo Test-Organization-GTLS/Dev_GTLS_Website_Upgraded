@@ -1,5 +1,5 @@
-import { Check, MapPin } from "lucide-react";
-import { GridCardProps, Location, MenuSection, WhyGtlsItem } from "./types";
+import { Check, CheckCircle, MapPin } from "lucide-react";
+import { GridCardProps, IntegratedSolutionsItem, Location, MenuSection, WhyGtlsItem } from "./types";
 
 export const serviceData: GridCardProps[] = [
   {
@@ -457,3 +457,90 @@ export const contactUsData = {
     },
   ],
 };
+
+export const branchesData = [
+  {
+    name: "Sydney Branch",
+    phone: "1800 04 03 06",
+    address: "Jl. Danau Jonge 12, Mayjend Sungkono, SBY",
+    mail: "Box 167, Hoxton Park, NSW 2171",
+  },
+  {
+    name: "Sydney Branch",
+    phone: "1800 04 03 06",
+    address: "Jl. Danau Jonge 12, Mayjend Sungkono, SBY",
+    mail: "Box 167, Hoxton Park, NSW 2171",
+  },
+]
+
+export const IntegratedSolutionsData: IntegratedSolutionsItem[] = [
+  {
+    title: "Inventory Storage",
+description: "Secure, scalable warehousing tailored to your product needs.",
+    picture: "/svgs/ftl.svg",
+  },
+  {
+    title: "Order Fulfilment & Transport",
+    description: "Pick, pack, and deliver with speed and accuracy across all networks.",
+    picture: "/svgs/ftl.svg",
+  },
+  {
+    title: "Delivery + Returns",
+    description: "Seamless final-mile delivery with efficient return handling built-in.",
+    picture: "/svgs/ftl.svg",
+  },
+];
+
+export const ServicesData = [
+  {
+    title: "Distribution Services",
+    description:
+      "National Reach with Local Precision. We deliver freight swiftly and efficiently across cities, regions, and states, allowing your business to move with pace.",
+    listItems: [
+      { icon: <CheckCircle className="text-yellow-600" />, title: "Express & Standard" },
+      { icon: <CheckCircle className="text-yellow-600" />, title: "Local Store Drops" },
+      { icon: <CheckCircle className="text-yellow-600" />, title: "Cold Chain (CRT/FRM/HCCP)" },
+    ],
+    buttonText: "Contact Us Now",
+    image: "/images/distribution-services.jpg", // replace with actual path
+  },
+  {
+    title: "Return Logistics",
+    description:
+      "Close the Loop. Recover Value. Reduce Waste. We support our customers with tailored reverse logistics systems to handle returns, refurbishing, recycling, and asset recovery efficiently.",
+    listItems: [
+      { icon: <CheckCircle className="text-yellow-600" />, title: "Pickup and returns coordination" },
+      { icon: <CheckCircle className="text-yellow-600" />, title: "Quality checks and repackaging" },
+      { icon: <CheckCircle className="text-yellow-600" />, title: "Sustainable disposal and recycling" },
+      { icon: <CheckCircle className="text-yellow-600" />, title: "Inventory reintegration or recall handling" },
+    ],
+    buttonText: "Talk to Our Team",
+    image: "/images/return-logistics.jpg",
+  },
+  {
+    title: "Pallet Management",
+    description:
+      "Close the Loop. Recover Value. Reduce Waste. We support our customers with tailored reverse logistics systems to handle returns, refurbishing, recycling, and asset recovery efficiently.",
+    listItems: [
+      { icon: <CheckCircle className="text-yellow-600" />, title: "Pickup and returns coordination" },
+      { icon: <CheckCircle className="text-yellow-600" />, title: "Quality checks and repackaging" },
+      { icon: <CheckCircle className="text-yellow-600" />, title: "Sustainable disposal and recycling" },
+      { icon: <CheckCircle className="text-yellow-600" />, title: "Inventory reintegration or recall handling" },
+    ],
+    buttonText: "Talk to Our Team",
+    image: "/images/pallet-management.jpg",
+  },
+  {
+    title: "Fleet Management Systems",
+    description:
+      "Close the Loop. Recover Value. Reduce Waste. We support our customers with tailored reverse logistics systems to handle returns, refurbishing, recycling, and asset recovery efficiently.",
+    listItems: [
+      { icon: <CheckCircle className="text-yellow-600" />, title: "Pickup and returns coordination" },
+      { icon: <CheckCircle className="text-yellow-600" />, title: "Quality checks and repackaging" },
+      { icon: <CheckCircle className="text-yellow-600" />, title: "Sustainable disposal and recycling" },
+      { icon: <CheckCircle className="text-yellow-600" />, title: "Inventory reintegration or recall handling" },
+    ],
+    buttonText: "Talk to Our Team",
+    image: "/images/fleet-management.jpg",
+  },
+];

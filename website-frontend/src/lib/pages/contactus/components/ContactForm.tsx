@@ -23,6 +23,8 @@ import {
   SelectTrigger,
   SelectValue,
 } from "@/lib/ui/select";
+import TextWrapper from "@/lib/components/Common/TextWrapper";
+import { Mail, Phone, User } from "lucide-react";
 
 // ✅ Validation schema
 const formSchema = z.object({
@@ -33,7 +35,9 @@ const formSchema = z.object({
     .min(10, { message: "Phone number must be at least 10 digits." })
     .regex(/^[0-9]+$/, { message: "Phone number must only contain digits." }),
   propertyType: z.string().min(1, { message: "Select a property type." }),
-  message: z.string().min(5, { message: "Message must be at least 5 characters." }),
+  message: z
+    .string()
+    .min(5, { message: "Message must be at least 5 characters." }),
 });
 
 type ContactFormValues = z.infer<typeof formSchema>;
@@ -60,17 +64,31 @@ const ContactForm = () => {
     <Form {...form}>
       <form
         onSubmit={form.handleSubmit(onSubmit)}
-        className="space-y-6 max-w-md mx-auto"
+        className="space-y-6 max-w-md mx-auto border border-gray-200 rounded-4xl p-6 shadow-xs"
       >
+        <div>
+          <TextWrapper
+            text="Contact Us"
+            fontFamily="funnel"
+            styleType="title2"
+            className="text-gold"
+          />
+        </div>
+
         {/* Name */}
         <FormField
           control={form.control}
           name="name"
           render={({ field }) => (
             <FormItem>
-              <FormLabel>Name</FormLabel>
+              {/* <FormLabel>Name</FormLabel> */}
               <FormControl>
-                <Input placeholder="John Doe" className="!rouunded-xl" {...field} />
+                <Input
+                  placeholder="Your Name"
+                  className="bg-creamy rounded-full"
+                  icon={<User className="text-dark-gold size-4" />}
+                  {...field}
+                />
               </FormControl>
               <FormMessage />
             </FormItem>
@@ -83,9 +101,14 @@ const ContactForm = () => {
           name="email"
           render={({ field }) => (
             <FormItem>
-              <FormLabel>Email</FormLabel>
               <FormControl>
-                <Input type="email" placeholder="john@example.com" className="bg-gray-100 rouunded-xl" {...field} />
+                <Input
+                  type="email"
+                  placeholder="Email"
+                  className="bg-creamy rounded-full"
+                  icon={<Mail className="text-dark-gold size-4" />}
+                  {...field}
+                />
               </FormControl>
               <FormMessage />
             </FormItem>
@@ -98,9 +121,14 @@ const ContactForm = () => {
           name="phone"
           render={({ field }) => (
             <FormItem>
-              <FormLabel>Phone</FormLabel>
               <FormControl>
-                <Input type="tel" placeholder="1234567890" {...field} />
+                <Input
+                  type="tel"
+                  placeholder="Phone"
+                  icon={<Phone className="text-dark-gold size-4" />}
+                  {...field}
+                  className="bg-creamy rounded-full"
+                />
               </FormControl>
               <FormMessage />
             </FormItem>
@@ -113,10 +141,9 @@ const ContactForm = () => {
           name="propertyType"
           render={({ field }) => (
             <FormItem>
-              <FormLabel>Property Type</FormLabel>
               <FormControl>
                 <Select onValueChange={field.onChange} value={field.value}>
-                  <SelectTrigger>
+                  <SelectTrigger className="bg-creamy rounded-full">
                     <SelectValue placeholder="Select a property type" />
                   </SelectTrigger>
                   <SelectContent>
@@ -138,11 +165,10 @@ const ContactForm = () => {
           name="message"
           render={({ field }) => (
             <FormItem>
-              <FormLabel>Message</FormLabel>
               <FormControl>
                 <Textarea
-                  placeholder="Write your message here..."
-                  className="resize-none"
+                  placeholder="Your Message"
+                  className="resize-none bg-creamy rounded-2xl"
                   {...field}
                 />
               </FormControl>
@@ -152,8 +178,12 @@ const ContactForm = () => {
         />
 
         {/* Submit Button */}
-        <Button type="submit" className="w-full">
-          Submit
+        <Button type="submit" className="w-48 rounded-full h-12">
+          <TextWrapper
+            text="Send Message"
+            fontFamily="dmSans"
+            styleType="body"
+          />
         </Button>
       </form>
     </Form>
