@@ -1,5 +1,12 @@
 import { Check, CheckCircle, MapPin } from "lucide-react";
-import { GridCardProps, IntegratedSolutionsItem, Location, MenuSection, WhyGtlsItem } from "./types";
+import {
+  GridCardProps,
+  IntegratedSolutionsItem,
+  Location,
+  MenuSection,
+  WhyGtlsItem,
+} from "./types";
+import { subtle } from "crypto";
 
 export const serviceData: GridCardProps[] = [
   {
@@ -403,7 +410,8 @@ export const EnvironmentData = [
 
 export const contactUsData = {
   title: "Book a Meeting",
-  subtitle: "Let’s talk logistics. Schedule a one-on-one with our team to discuss your needs.",
+  subtitle:
+    "Let’s talk logistics. Schedule a one-on-one with our team to discuss your needs.",
   description:
     "Gold Tiger Logistics Solutions began in 2006 when a 19-year-old truck enthusiast, Imad El Masri, started with just one truck and a dream. By 2010, he had built a 20-truck interstate fleet. Today, Gold Tiger is a $55M+ logistics company with over 120 prime movers, 280 trailers, and 350+ team members — all proudly owned and operated. Backed by a strong partnership with Volvo and our in-house workshops, we keep Australia’s supply chain moving with reliability and passion.",
   list: [
@@ -471,22 +479,24 @@ export const branchesData = [
     address: "Jl. Danau Jonge 12, Mayjend Sungkono, SBY",
     mail: "Box 167, Hoxton Park, NSW 2171",
   },
-]
+];
 
 export const IntegratedSolutionsData: IntegratedSolutionsItem[] = [
   {
     title: "Inventory Storage",
-description: "Secure, scalable warehousing tailored to your product needs.",
+    description: "Secure, scalable warehousing tailored to your product needs.",
     picture: "/svgs/ftl.svg",
   },
   {
     title: "Order Fulfilment & Transport",
-    description: "Pick, pack, and deliver with speed and accuracy across all networks.",
+    description:
+      "Pick, pack, and deliver with speed and accuracy across all networks.",
     picture: "/svgs/ftl.svg",
   },
   {
     title: "Delivery + Returns",
-    description: "Seamless final-mile delivery with efficient return handling built-in.",
+    description:
+      "Seamless final-mile delivery with efficient return handling built-in.",
     picture: "/svgs/ftl.svg",
   },
 ];
@@ -494,53 +504,138 @@ description: "Secure, scalable warehousing tailored to your product needs.",
 export const ServicesData = [
   {
     title: "Distribution Services",
+    subtitle: "From Warehousing to Delivery",
     description:
       "National Reach with Local Precision. We deliver freight swiftly and efficiently across cities, regions, and states, allowing your business to move with pace.",
     listItems: [
-      { icon: <CheckCircle className="text-yellow-600" />, title: "Express & Standard" },
-      { icon: <CheckCircle className="text-yellow-600" />, title: "Local Store Drops" },
-      { icon: <CheckCircle className="text-yellow-600" />, title: "Cold Chain (CRT/FRM/HCCP)" },
+      {
+        icon: <CheckCircle className="text-yellow-600" />,
+        title: "Express & Standard",
+      },
+      {
+        icon: <CheckCircle className="text-yellow-600" />,
+        title: "Local Store Drops",
+      },
+      {
+        icon: <CheckCircle className="text-yellow-600" />,
+        title: "Cold Chain (CRT/FRM/HCCP)",
+      },
     ],
     buttonText: "Contact Us Now",
-    image: "/images/distribution-services.jpg", // replace with actual path
+    image: "/webp/3movers.webp", // replace with actual path
   },
   {
     title: "Return Logistics",
+    subtitle: "From Warehousing to Delivery",
     description:
       "Close the Loop. Recover Value. Reduce Waste. We support our customers with tailored reverse logistics systems to handle returns, refurbishing, recycling, and asset recovery efficiently.",
     listItems: [
-      { icon: <CheckCircle className="text-yellow-600" />, title: "Pickup and returns coordination" },
-      { icon: <CheckCircle className="text-yellow-600" />, title: "Quality checks and repackaging" },
-      { icon: <CheckCircle className="text-yellow-600" />, title: "Sustainable disposal and recycling" },
-      { icon: <CheckCircle className="text-yellow-600" />, title: "Inventory reintegration or recall handling" },
+      {
+        icon: <CheckCircle className="text-yellow-600" />,
+        title: "Pickup and returns coordination",
+      },
+      {
+        icon: <CheckCircle className="text-yellow-600" />,
+        title: "Quality checks and repackaging",
+      },
+      {
+        icon: <CheckCircle className="text-yellow-600" />,
+        title: "Sustainable disposal and recycling",
+      },
+      {
+        icon: <CheckCircle className="text-yellow-600" />,
+        title: "Inventory reintegration or recall handling",
+      },
     ],
     buttonText: "Talk to Our Team",
-    image: "/images/return-logistics.jpg",
+    image: "/webp/3movers.webp",
   },
   {
     title: "Pallet Management",
+    subtitle: "From Warehousing to Delivery",
     description:
       "Close the Loop. Recover Value. Reduce Waste. We support our customers with tailored reverse logistics systems to handle returns, refurbishing, recycling, and asset recovery efficiently.",
     listItems: [
-      { icon: <CheckCircle className="text-yellow-600" />, title: "Pickup and returns coordination" },
-      { icon: <CheckCircle className="text-yellow-600" />, title: "Quality checks and repackaging" },
-      { icon: <CheckCircle className="text-yellow-600" />, title: "Sustainable disposal and recycling" },
-      { icon: <CheckCircle className="text-yellow-600" />, title: "Inventory reintegration or recall handling" },
+      {
+        icon: <CheckCircle className="text-yellow-600" />,
+        title: "Pickup and returns coordination",
+      },
+      {
+        icon: <CheckCircle className="text-yellow-600" />,
+        title: "Quality checks and repackaging",
+      },
+      {
+        icon: <CheckCircle className="text-yellow-600" />,
+        title: "Sustainable disposal and recycling",
+      },
+      {
+        icon: <CheckCircle className="text-yellow-600" />,
+        title: "Inventory reintegration or recall handling",
+      },
     ],
     buttonText: "Talk to Our Team",
-    image: "/images/pallet-management.jpg",
+    image: "/webp/3movers.webp",
   },
   {
     title: "Fleet Management Systems",
+    subtitle: "From Warehousing to Delivery",
     description:
       "Close the Loop. Recover Value. Reduce Waste. We support our customers with tailored reverse logistics systems to handle returns, refurbishing, recycling, and asset recovery efficiently.",
     listItems: [
-      { icon: <CheckCircle className="text-yellow-600" />, title: "Pickup and returns coordination" },
-      { icon: <CheckCircle className="text-yellow-600" />, title: "Quality checks and repackaging" },
-      { icon: <CheckCircle className="text-yellow-600" />, title: "Sustainable disposal and recycling" },
-      { icon: <CheckCircle className="text-yellow-600" />, title: "Inventory reintegration or recall handling" },
+      {
+        icon: <CheckCircle className="text-yellow-600" />,
+        title: "Pickup and returns coordination",
+      },
+      {
+        icon: <CheckCircle className="text-yellow-600" />,
+        title: "Quality checks and repackaging",
+      },
+      {
+        icon: <CheckCircle className="text-yellow-600" />,
+        title: "Sustainable disposal and recycling",
+      },
+      {
+        icon: <CheckCircle className="text-yellow-600" />,
+        title: "Inventory reintegration or recall handling",
+      },
     ],
     buttonText: "Talk to Our Team",
-    image: "/images/fleet-management.jpg",
+    image: "/webp/3movers.webp",
   },
+];
+
+export const news = [
+  {
+    title: "We've Doubled Our B-Triple Fleet!",
+    date: "June 10, 2025",
+    description:
+      "At Gold Tiger Logistics Solutions, we're proud to announce that we have doubled our B-Triple fleet.",
+    image: "/webp/3movers.webp", // replace with actual path
+    href: "/posts/b-triple-fleet",
+  },
+  {
+    title: "New Depot Opening in Sydney",
+    date: "May 15, 2025",
+    description:
+      "We are excited to expand our network with a brand new logistics hub in Sydney.",
+    image: "/webp/3movers.webp",
+    href: "/posts/depot-opening",
+  },
+  {
+    title: "We've Doubled Our B-Triple Fleet!",
+    date: "June 10, 2025",
+    description:
+      "At Gold Tiger Logistics Solutions, we're proud to announce that we have doubled our B-Triple fleet.",
+    image: "/webp/3movers.webp", // replace with actual path
+    href: "/posts/b-triple-fleet",
+  },
+  {
+    title: "New Depot Opening in Sydney",
+    date: "May 15, 2025",
+    description:
+      "We are excited to expand our network with a brand new logistics hub in Sydney.",
+    image: "/webp/3movers.webp",
+    href: "/posts/depot-opening",
+  },
+  // Add more posts here
 ];

@@ -11,6 +11,7 @@ export interface GridCardProps {
 
 export interface CenterTitleProps {
   title: string;
+  subtitle?: string;
   description?: string; // The `?` makes this property optional
   button?: React.ReactNode; // `React.ReactNode` is a great type for optional elements like a button
   dark?: boolean; // Optional prop to switch to dark mode styles
@@ -170,4 +171,28 @@ export interface IntegratedSolutionsItem {
 
 export interface IntegratedSolutionsProps {
   items: IntegratedSolutionsItem[];
+}
+
+export interface RecentNewsCardProps {
+  title: string;
+  date: string;
+  description: string;
+  image: string;
+  href: string;
+}
+
+export interface RecentNewsProps {
+  items: RecentNewsCardProps[];
+}
+
+export interface RecentPostsCardProps {
+  title: string;
+  date: string;
+  description: string;
+  image: string;
+  href: string;
+}
+
+export interface RecentPostsProps {
+  items: RecentPostsCardProps[];
 }

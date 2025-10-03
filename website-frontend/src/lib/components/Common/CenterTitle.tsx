@@ -7,6 +7,7 @@ import { Button } from "@/lib/ui/button";
 
 const CenterTitle: React.FC<CenterTitleProps> = ({
   title,
+  subtitle,
   description,
   dark = false,
   buttonText,
@@ -31,10 +32,13 @@ const CenterTitle: React.FC<CenterTitleProps> = ({
     <div className={`flex flex-col gap-4 my-10 ${alignmentClasses[placement]}`}>
       <TextWrapper
         text={title}
-        fontFamily="dmSans"
+        fontFamily="funnel"
         styleType="title2"
         className={titleColor}
       />
+      {subtitle && (
+        <TextWrapper text={title} fontFamily="dmSans" styleType="title4" />
+      )}
       {/* Conditionally render the description if it exists */}
       {description && (
         <TextWrapper
@@ -48,11 +52,15 @@ const CenterTitle: React.FC<CenterTitleProps> = ({
       {listItems && listItems.length > 0 && (
         <ul className={`space-y-2 ${placement === "center" ? "mx-auto" : ""}`}>
           {listItems.map((item, idx) => (
-            <li key={idx} className={`flex items-center gap-2 ${textColor}`}>
+            <li key={idx} className={`flex items-center gap-4 ${textColor}`}>
               {item.icon && (
                 <span className="flex-shrink-0 text-xl">{item.icon}</span>
               )}
-              <TextWrapper text={item.title} fontFamily="dmSans" styleType="body" />
+              <TextWrapper
+                text={item.title}
+                fontFamily="dmSans"
+                styleType="link"
+              />
             </li>
           ))}
         </ul>
